@@ -62,7 +62,7 @@ const Header = (props) => {
       </IconContext.Provider>
       </div>
       
-      <div >{showDash===true ? <Dash {...props}/> : <Template {...props} />}</div>
+      <div className="ri8">{showDash===true ? <Dash {...props}/> : <Template {...props} />}</div>
 
       </div>
     
