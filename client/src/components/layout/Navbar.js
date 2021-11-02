@@ -6,10 +6,9 @@ import {
   Menu,
   MenuItem,
   SidebarHeader,
-  SidebarFooter,
+  
   SidebarContent,
 } from "react-pro-sidebar";
-import { Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
 
 //import icons from react icons
 import { IconContext } from "react-icons";
@@ -43,7 +42,7 @@ const Header = (props) => {
           <SidebarHeader>
           <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p>{menuCollapse ? "Plaid" : "MERN Plaid"}</p>
+              <p>{menuCollapse ? "Plaid" : "Demo Plaid"}</p>
             </div>
             
           </SidebarHeader>
@@ -52,7 +51,7 @@ const Header = (props) => {
               {/* <MenuItem active={true} icon={<FiHome />}>
                 Home
               </MenuItem> */}
-              <MenuItem icon={<AiOutlineDashboard />} onClick={()=>setshowDash(true)}>Dashboard</MenuItem>
+              <MenuItem icon={<AiOutlineDashboard />} onClick={()=>setshowDash(true) }>Dashboard</MenuItem>
 
               <MenuItem icon={<AiOutlineDollarCircle />} onClick={()=>setshowDash(false)}>Transactions</MenuItem>
               
@@ -63,7 +62,7 @@ const Header = (props) => {
       </IconContext.Provider>
       </div>
       
-      <div >{showDash==true ? <Dash {...props}/> : <Template {...props} />}</div>
+      <div >{showDash===true ? <Dash {...props}/> : <Template {...props} />}</div>
 
       </div>
     

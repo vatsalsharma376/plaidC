@@ -9,12 +9,7 @@ import {
   deleteAccount
 } from "../../actions/accountActions";
 import { logoutUser } from "../../actions/authActions";
-import Header from "../layout/Navbar";
-import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
-import { FiLogOut } from "react-icons/fi";
 // AiOutlineUser
-import { BiUserCircle } from "react-icons/bi";
-import { Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
 //import Transactions from "./Transactions";
 const Transactions = (props) => {
   useEffect(()=> {

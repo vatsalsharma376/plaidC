@@ -1,21 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import PlaidLinkButton from "react-plaid-link-button";
-import { connect } from "react-redux";
-import { useEffect } from "react";
-import axios from "axios";
-import {
-  getTransactions,
-  addAccount,
-  deleteAccount
-} from "../../actions/accountActions";
-import { logoutUser } from "../../actions/authActions";
-import Header from "../layout/Navbar";
-import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
-import { FiLogOut } from "react-icons/fi";
-// AiOutlineUser
-import { BiUserCircle } from "react-icons/bi";
-import { Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
 const Dash = (props) => {
     // Add account
   const handleOnSuccess = (token, metadata) => {
@@ -40,10 +24,7 @@ const Dash = (props) => {
   };
 
   // Logout
-  const onLogoutClick = e => {
-    e.preventDefault();
-    props.logoutUser();
-  };
+  
 
   
     const { user, accounts } = props;

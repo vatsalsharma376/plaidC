@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import PlaidLinkButton from "react-plaid-link-button";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import axios from "axios";
 import {
   getTransactions,
   addAccount,
@@ -11,19 +9,15 @@ import {
 } from "../../actions/accountActions";
 import { logoutUser } from "../../actions/authActions";
 import Header from "../layout/Navbar";
-import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
 import { FiLogOut } from "react-icons/fi";
 // AiOutlineUser
 import { BiUserCircle } from "react-icons/bi";
-import { Link,BrowserRouter as Router,Route,Switch } from "react-router-dom";
-import Transactions from "./Transactions";
-import Template from "./Template";
-import Dash from "./Dash";
+
 const Accounts = (props) => {
   
   useEffect( ()=> {
     
-    const { accounts } = props;
+    //const { accounts } = props;
     //props.getTransactions(accounts);
     //axios.post("/api/plaid/accounts/transactions",accounts).then((response) => {
       //props=response.data;
@@ -32,26 +26,10 @@ const Accounts = (props) => {
      },[])
 
   // Add account
-  const handleOnSuccess = (token, metadata) => {
-    const { accounts } = props;
-    const plaidData = {
-      public_token: token,
-      metadata: metadata,
-      accounts: accounts
-    };
-
-    props.addAccount(plaidData);
-  };
+ 
 
   // Delete account
-  const onDeleteClick = id => {
-    const { accounts } = props;
-    const accountData = {
-      id: id,
-      accounts: accounts
-    };
-    props.deleteAccount(accountData);
-  };
+ 
 
   // Logout
   const onLogoutClick = e => {
@@ -59,39 +37,10 @@ const Accounts = (props) => {
     props.logoutUser();
   };
 
-  
-    const { user, accounts } = props;
-    
-    
-    let accountItems = accounts.map(account => (
-      <li key={account._id} style={{ marginTop: "1rem" }}>
-        <button
-          style={{ marginRight: "1rem" }}
-          onClick={onDeleteClick.bind(this, account._id)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        >
-          <i className="material-icons">delete</i>
-        </button>
-        <b>{account.institutionName}</b>
-      </li>
-    ));
 
-    // Setting up data table 
-    const transactionsColumns = [
-      { title: "Account", field: "account" },
-      { title: "Date", field: "date", type: "date", defaultSort: "desc" },
-      { title: "Name", field: "name" },
-      { title: "Amount", field: "amount", type: "numeric" },
-      { title: "Category", field: "category" }
-    ];
-    
+  
     //console.log(props.plaid);
-    function showT(props){
-      return <Template {...props} />;
-    }
-    function showD(props){
-      return <Dash {...props} />
-    }
+    
     return (
        <>
        

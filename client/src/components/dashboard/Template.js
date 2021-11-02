@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import PlaidLinkButton from "react-plaid-link-button";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import {useState} from "react";
@@ -11,7 +10,6 @@ import {
   deleteAccount
 } from "../../actions/accountActions";
 import { logoutUser } from "../../actions/authActions";
-import Header from "../layout/Navbar";
 import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
 import cal from "../../img/cal.png";
 import Calendar from "react-calendar";
@@ -27,7 +25,7 @@ const Template = (props) => {
   const [date1,setdate1] = useState("Choose a starting date");
   const [date2,setdate2] = useState("Choose an ending date");
   // }
-    const { user, accounts } = props.plaid;
+    const {  accounts } = props.plaid;
 
   useEffect( ()=> {
     (
