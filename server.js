@@ -8,6 +8,7 @@ const plaid = require("./routes/api/plaid");
 
 const app = express();
 
+  const path = require('path');
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -43,7 +44,6 @@ app.use("/api/plaid", plaid);
   app.use(express.static('client/build'));
 
   // Express serve up index.html file if it doesn't recognize route
-  const path = require('path');
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
